@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center align-items-center py-4" style="min-height: 100vh; background: #f5f9fc;">
+  <div class="card shadow-sm border-0 rounded-4 p-4 bg-white" style="width: 100%; max-width: 500px;">
+    <h4 class="mb-4 fw-semibold text-center border-bottom pb-2">Settings</h4>
+
+    <!-- Change Password Section -->
+    <h6 class="fw-semibold text-secondary mb-3">Change Password</h6>
+    <form (ngSubmit)="changePassword()">
+      <div class="mb-3">
+        <input [(ngModel)]="oldPassword" name="oldPassword" type="password"
+               class="form-control rounded-3 shadow-sm"
+               placeholder="Old Password" required>
+      </div>
+      <div class="mb-3">
+        <input [(ngModel)]="newPassword" name="newPassword" type="password"
+               class="form-control rounded-3 shadow-sm"
+               placeholder="New Password" required>
+      </div>
+      <button type="submit"
+              class="btn btn-primary w-100 rounded-pill d-inline-flex align-items-center justify-content-center gap-2">
+        <i class="bi bi-key"></i> Change Password
+      </button>
+    </form>
+    <div *ngIf="successMessage" class="alert alert-success mt-2 rounded-3 shadow-sm">
+      {{ successMessage }}
+    </div>
+
+    <hr class="my-4">
+
+    <!-- Logout Button -->
+    <button class="btn btn-warning w-100 mb-2 rounded-pill d-inline-flex align-items-center justify-content-center gap-2"
+            (click)="logout()">
+      <i class="bi bi-box-arrow-right"></i> Logout
+    </button>
+
+    <!-- Delete Account Button -->
+    <button class="btn btn-danger w-100 rounded-pill d-inline-flex align-items-center justify-content-center gap-2"
+            (click)="deleteAccount()">
+      <i class="bi bi-trash"></i> Delete My Account
+    </button>
+  </div>
+</div>

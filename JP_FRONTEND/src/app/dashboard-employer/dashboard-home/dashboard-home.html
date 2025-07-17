@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center align-items-center mt-5 gap-4">
+
+  <!-- Add New Job card -->
+  <div class="card text-center shadow p-4 bg-primary bg-gradient text-white"
+    style="width: 18rem; cursor: pointer;"
+    (click)="goToPostJob()">
+    <div class="card-body">
+      <h5 class="card-title">Add New Job</h5>
+      <p class="card-text">Click to post a new job</p>
+      <i class="bi bi-plus-circle fs-1"></i>
+    </div>
+  </div>
+
+  <!-- View Jobs card -->
+  <div class="card text-center shadow p-4 bg-success bg-gradient text-white"
+    style="width: 18rem; cursor: pointer;"
+    (click)="goToViewJobs()">
+    <div class="card-body">
+      <h5 class="card-title">View Jobs</h5>
+      <p class="card-text">Click to see all posted jobs</p>
+      <i class="bi bi-list-ul fs-1"></i>
+    </div>
+  </div>
+
+</div>
+
+<!-- New row for Application Status -->
+<div class="d-flex justify-content-center align-items-center mt-4">
+
+  <div class="card text-center shadow p-4 bg-info bg-gradient text-white"
+    style="width: 18rem; cursor: pointer;"
+    (click)="goToApplicationStatus()">
+    <div class="card-body">
+      <h5 class="card-title">Application Status</h5>
+      <p class="card-text">View job applications & status</p>
+      <i class="bi bi-check2-circle fs-1"></i>
+    </div>
+  </div>
+
+</div>

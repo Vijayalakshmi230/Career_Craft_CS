@@ -1,0 +1,33 @@
+<div class="d-flex m-0 p-0">
+  <!-- Sidebar -->
+  <div class="bg-white border-end shadow-sm d-flex flex-column position-fixed top-0 start-0"
+       style="width: 250px; height: 100vh;">
+    <div class="text-center my-4">
+      <i class="bi bi-person-circle fs-1 text-primary"></i>
+      <h5 class="mt-2 fw-semibold">{{ userName }}</h5>
+    </div>
+    <div class="d-grid gap-2 px-3">
+      <button class="btn btn-primary d-flex align-items-center gap-2" (click)="goToProfile()">
+        <i class="bi bi-person"></i> <span>User Profile</span>
+      </button>
+      <button class="btn btn-primary d-flex align-items-center gap-2" (click)="goToViewJobs()">
+        <i class="bi bi-briefcase"></i> <span>My Jobs Posted</span>
+      </button>
+      <button class="btn btn-outline-secondary d-flex align-items-center gap-2" (click)="goToSettings()">
+        <i class="bi bi-gear"></i> <span>Settings</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex-grow-1 p-4 bg-light" style="margin-left: 250px; min-height: 100vh;">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Modern floating dashboard home button -->
+<button class="btn btn-primary shadow-lg rounded-circle position-fixed bottom-0 end-0 m-4 d-flex align-items-center justify-content-center"
+        style="width: 60px; height: 60px;"
+        (click)="goToDashboard()">
+  <i class="bi bi-house fs-4"></i>
+</button>

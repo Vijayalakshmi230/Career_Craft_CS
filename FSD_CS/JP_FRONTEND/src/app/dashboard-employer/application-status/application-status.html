@@ -1,0 +1,64 @@
+<div class="container my-4">
+    <h2 class="mb-4 text-center text-primary">Applications for Your Posted Jobs</h2>
+
+    <div *ngFor="let item of applications" class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+            <span>
+                {{ item.job.title }}
+                <span class="badge bg-light text-primary ms-2">{{ item.job.designation }}</span>
+            </span>
+            <span class="small">Posted by: {{ item.job.postedByName }}</span>
+        </div>
+
+        <div class="card-body">
+            <div class="mb-2">
+                <strong>Company:</strong> {{ item.job.company }}<br>
+                <strong>Location:</strong> {{ item.job.location }} |
+                <strong>Salary:</strong> ₹{{ item.job.salary }}
+            </div>
+
+            <hr>
+
+            <div class="mb-2">
+                <h5 class="text-secondary mb-2">Applicant Details</h5>
+                <strong>Name:</strong> {{ item.application.name }}<br>
+                <strong>Email:</strong> {{ item.application.email }}<br>
+                <strong>Age:</strong> {{ item.application.age }} |
+                <strong>College:</strong> {{ item.application.college }} |
+                <strong>CGPA:</strong> {{ item.application.cgpa }}<br>
+                <strong>Experience:</strong> {{ item.application.yearsOfExperience }} years at {{
+                item.application.previousCompany }}<br>
+                <strong>Previous Role:</strong> {{ item.application.previousRole }}
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div>
+                    <button class="btn btn-outline-primary btn-sm" (click)="downloadResume(item.application.userId)">
+                        <i class="bi bi-download"></i> Download Resume
+                    </button>
+
+                </div>
+
+                <div>
+                    <span class="badge me-3" [ngClass]="{
+            'bg-success': item.application.status === 'ACCEPTED',
+            'bg-danger': item.application.status === 'REJECTED',
+            'bg-warning text-dark': item.application.status === 'REVIEWED',
+            'bg-secondary': item.application.status !== 'ACCEPTED' && item.application.status !== 'REJECTED' && item.application.status !== 'REVIEWED'
+          }">
+                        {{ item.application.status || 'PENDING' }}
+                    </span>
+                    <button class="btn btn-success btn-sm me-2" (click)="updateStatus(item.application.id, 'Accepted')">
+                        <i class="bi bi-check-circle"></i> Accept
+                    </button>
+                    <button class="btn btn-warning btn-sm me-2" (click)="updateStatus(item.application.id, 'Reviewed')">
+                        <i class="bi bi-eye"></i> Review
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="updateStatus(item.application.id, 'Rejected')">
+                        <i class="bi bi-x-circle"></i> Reject
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
